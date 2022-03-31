@@ -1,0 +1,38 @@
+site_name: Senwize Workshops
+repo_url: https://github.com/senwize/fijnstof_workshop
+repo_name: Senwize Workshops
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/git-alt 
+  palette:
+    - scheme: default
+      primary: deep blue
+      accent: blue grey
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Fijnstof:
+    - Introductie: fijnstof/0-start.md
+    - Eerste test: fijnstof/1-first-test.md
+    - Hallo wereld: fijnstof/2-first-code.md
+    - Herhalingen: fijnstof/3-while-loop.md
+    - Als, dan, wat: fijnstof/4-if-else.md
+

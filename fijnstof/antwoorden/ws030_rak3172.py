@@ -1,5 +1,5 @@
 from machine import UART, Pin
-from rak3172 import RAK3172
+from lib.rak3172 import RAK3172
 
 verbinding = UART(id=0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 lora = RAK3172(verbinding)

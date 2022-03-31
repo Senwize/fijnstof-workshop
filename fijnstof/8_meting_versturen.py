@@ -1,8 +1,8 @@
 # Gebruik deze imports en functies
 from machine import Pin, UART
 from utime import sleep
-from rak3172 import RAK3172
-from sps30 import SPS30
+from lib.rak3172 import RAK3172
+from lib.sps30 import SPS30
 
 # De laatste opdracht: alles samenvoegen met elkaar.
 # Dus:

@@ -1,6 +1,6 @@
 from utime import sleep
 from machine import UART, Pin
-from sps30 import SPS30
+from lib.sps30 import SPS30
 
 # Opstellen van de UART verbinding
 tx_pin = Pin(4)

@@ -2,7 +2,7 @@
 # dit doen we hetzelfde als de import van `Pin`
 from machine import UART, Pin
 # Dit doen we ook met de SPS30 sensor
-from sps30 import SPS30
+from lib.sps30 import SPS30
 
 # Hier maken we twee variabelen aan die beide een
 # van de UART pinnen representeren:

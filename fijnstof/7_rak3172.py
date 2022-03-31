@@ -1,6 +1,6 @@
 from machine import UART, Pin
 # Gebruik ook de RAK3172 functionaliteit
-from rak3172 import RAK3172
+from lib.rak3172 import RAK3172
 
 # We gebruiken de standaard UART0 pinnen en configuratie
 # dat is pin 0 en 1 met een baudrate van 9600

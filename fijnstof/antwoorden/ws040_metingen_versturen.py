@@ -1,8 +1,8 @@
 from usys import exit
 from utime import sleep, ticks_ms
 from machine import UART, Pin
-from rak3172 import RAK3172
-from sps30 import SPS30
+from lib.rak3172 import RAK3172
+from lib.sps30 import SPS30
 
 # Maak de software UART verbinding voor de lora module en de sensor
 lora_uart = UART(id=0, tx=Pin(0), rx=Pin(1), baudrate=9600)
