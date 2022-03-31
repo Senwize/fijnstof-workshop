@@ -56,10 +56,10 @@ Met het tweede workshop bestand (2_while_loop.py) geopend, klik op de Run knop i
     9
     ```
 
-!!! question "Vraag A"
-    Waarom eindigt het getal bij 9 en niet 10?
+!!! question "Vraag A: 'kleiner dan' en 'kleiner dan of gelijk aan'"
+    Waarom eindigt het getal bij 9 en niet 10? (Denk aan je wiskunde les)
 
-!!! question "Vraag B"
+!!! question "Oefening B: Het dubbele"
     Hoe kan je de code zo aanpassen dat je de onderstaande reactie krijg:
     
     ``` title="Uitkomst van aangepaste code" linenums="0"
