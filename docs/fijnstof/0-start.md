@@ -2,6 +2,20 @@
 
 In de workshop "IoT fijnstof sensor" gaan we met behulp van een microcontroller, sensor en radiomodule een draadloos meetapparaat maken dat elke 10 seconden een meting doet en data doorstuurt.
 
+Voor het versturen van data maken we gebruik van het LoRaWAN netwerk. Samen met duizenden vrijwilligers is er een gratis netwerk opgezet om data te versturen en ontvangen, dit is het TheThingsNetwork. De Provincie Zeeland en het Waterschap Scheldestromen hebben gezamelijk een Zeeland dekkend netwerk gemaakt.
+
+<figure markdown="1">
+![LoRaWAN coverage in Zeeland](./media/lorawan_dekking.png){width=600}
+</figure>
+
+Ook het Goese Lyceum en Pieter Zeeman Lyceum dragen bij aan het netwerk via een ontvanger.
+
+<figure markdown="1">
+|                                   |                                                              |
+| --------------------------------- | ------------------------------------------------------------ |
+| ![](./media/pontes_gateway_1.jpg) | ![LoRaWAN coverage in Zeeland](./media/pontes_gateway_2.jpg) |
+</figure>
+
 
 ## Benodigdheden
 

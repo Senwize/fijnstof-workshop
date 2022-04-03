@@ -5,6 +5,7 @@ theme:
   name: material
   features:
     - navigation.tabs
+    - navigation.sections 
     - toc.integrate
   icon:
     repo: fontawesome/brands/git-alt 
@@ -32,9 +33,14 @@ nav:
   - Home: index.md
   - Fijnstof:
     - Introductie: fijnstof/0-start.md
-    - Eerste test: fijnstof/1-first-test.md
-    - Hallo wereld: fijnstof/2-first-code.md
-    - Herhalingen: fijnstof/3-while-loop.md
-    - Als, dan, wat: fijnstof/4-if-else.md
-    - Lampje knipperen: fijnstof/5-blink.md
+    - Code schrijven:
+      - Eerste test: fijnstof/1-first-test.md
+      - Hallo wereld: fijnstof/2-first-code.md
+      - Herhalingen: fijnstof/3-while-loop.md
+      - Als, dan, wat: fijnstof/4-if-else.md
+      - Lampje knipperen: fijnstof/5-blink.md
+    - Fijnstof meten:
+      - Wat is fijnstof: fijnstof/6-pm.md
+      - Praten met de sensor: fijnstof/7-uart.md
+      - Een meting doen: fijnstof/8-pm-measurement.md
 
