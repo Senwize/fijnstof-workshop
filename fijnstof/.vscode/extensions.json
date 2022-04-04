@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "chriswood.pico-go",
+        "ms-python.python",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-python.vscode-pylance",
+        "oderwat.indent-rainbow"
+    ]
+}

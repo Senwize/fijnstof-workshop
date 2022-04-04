@@ -1,0 +1,24 @@
+{
+    "python.linting.enabled": true,
+    "python.analysis.typeshedPaths": [
+        ".vscode\\Pico-Stub"
+    ],
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.extraPaths": [
+        ".vscode\\Pico-Stub\\stubs"
+    ],
+    "indentRainbow.colors": [
+        "rgba(127,255,127,0.3)",
+        "rgba(255,127,255,0.3)",
+        "rgba(79,236,236,0.3)",
+        "rgba(123,79,236,0.3)"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "120",
+        "--experimental"
+    ],
+    "editor.tabSize": 4,
+    "editor.guides.indentation": true
+}
