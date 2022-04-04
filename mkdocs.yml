@@ -43,4 +43,9 @@ nav:
       - Wat is fijnstof: fijnstof/pm.md
       - Praten met de sensor: fijnstof/uart.md
       - Een meting doen: fijnstof/pm-measurement.md
+    - Online verbinding:
+        - Wat is LoRa(WAN): fijnstof/lorawan.md
+        - LoRaWAN module: fijnstof/rak3172.md
+    - De laatste stap:
+        - Online je meting versturen: fijnstof/final-step.md
 
