@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+    
+    
+      
+        <title>Praten met de sensor - Senwize Workshops</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9d5733d3.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="blue-grey">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#communicatie-met-de-sensor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Senwize Workshops" class="md-header__button md-logo" aria-label="Senwize Workshops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Senwize Workshops
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Praten met de sensor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="blue-grey"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/senwize/fijnstof_workshop/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Senwize Workshops
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../start/" class="md-tabs__link md-tabs__link--active">
+        Fijnstof
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Senwize Workshops" class="md-nav__button md-logo" aria-label="Senwize Workshops" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Senwize Workshops
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/senwize/fijnstof_workshop/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Senwize Workshops
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Fijnstof
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fijnstof" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Fijnstof
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/" class="md-nav__link">
+        Introductie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Code schrijven
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code schrijven" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code schrijven
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-test/" class="md-nav__link">
+        Eerste test
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-code/" class="md-nav__link">
+        Hallo wereld
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../while-loop/" class="md-nav__link">
+        Herhalingen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../if-else/" class="md-nav__link">
+        Als, dan, wat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blink/" class="md-nav__link">
+        Lampje knipperen
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Fijnstof meten
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fijnstof meten" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Fijnstof meten
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pm/" class="md-nav__link">
+        Wat is fijnstof
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Praten met de sensor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Praten met de sensor
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#breadboard-aansluiting" class="md-nav__link">
+    Breadboard aansluiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-aansluiting" class="md-nav__link">
+    Sensor aansluiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-schrijven" class="md-nav__link">
+    Code schrijven
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pm-measurement/" class="md-nav__link">
+        Een meting doen
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Online verbinding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Online verbinding" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Online verbinding
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lorawan/" class="md-nav__link">
+        Wat is LoRa(WAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rak3172/" class="md-nav__link">
+        LoRaWAN module
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          De laatste stap
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="De laatste stap" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          De laatste stap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../final-step/" class="md-nav__link">
+        Online je meting versturen
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/senwize/fijnstof_workshop/edit/master/docs/fijnstof/uart.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="communicatie-met-de-sensor">Communicatie met de sensor</h1>
+<p>Op een manier moeten we data naar de sensor sturen en een reactie - zoals meetresultaat - kunnen ontvangen. Zoals je eerder - bij het hoofdstuk over het LED lampje - hebt geleerd kunnen we een aan of uit signaal versturen. Op deze manier zou je bijvoorbeeld morse code kunnen versturen, maar dat kan efficienter.</p>
+<figure>
+<p><img alt="Abstract connection diagram from the microcontroller to the sensor" src="../media/sensor_comm.png" width="700" /></p>
+<figcaption>Communicatie tussen de microcontroller en sensor</figcaption>
+</figure>
+<p>Een betere manier dan morse om data te versturen via digitale signalen kan met <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr>. Hiermee kunnen we met twee kabels, die de microcontroller verbindt aan de sensor, data ontvangen(<abbr title="Receive; het ontvangen van data">RX</abbr>) en versturen(<abbr title="Transmit; het versturen van data">TX</abbr>)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Uiteindelijk komen de meeste manieren van digitale communicatie neer op aan en uit, 1 en 0 of hoog en lage spanningen. Een <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> bericht kan je zien in het diagram hieronder.</p>
+<p>Om het <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> protocol zelf te implementeren is vrij complex. Gelukkig heeft onze microcontroller al een aantal protocollen ingebouwd, waaronder <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr>. Het enige wat wij moeten doen is de sensor goed aansluiten met de kabeltjes en de microcontroller zo programmeren dat het <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> gaat gebruiken.</p>
+<details class="note">
+<summary><abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> iets verder uitgelegd</summary>
+<p>In het diagram hieroner kan je de stroom op een van de data kabels zien over een bepaalde tijd (op de horizontale as). Het hele bericht dat je ziet noemen we een "frame". Een frame heeft een begin en een einde. In dit geval is het begin de "start <abbr title="Een bit is een 1 of 0. Acht bits samen vormt een byte.">bit</abbr>", dus een laag signaal voor een bepaalde tijd. Dit wordt gevolgd door 8 data bits en met twee stop bits. De stop bits indiceren het einde van de frame.</p>
+<p>De "Parity <abbr title="Een bit is een 1 of 0. Acht bits samen vormt een byte.">bit</abbr>" is een simpele manier om te zien of er een fout is tijdens de communicatie. De parity <abbr title="Een bit is een 1 of 0. Acht bits samen vormt een byte.">bit</abbr> geeft aan of er een even of oneven aantal 1'tjes in de frame zitten. Mocht er dan een frame ontvangen zijn en de parity-<abbr title="Een bit is een 1 of 0. Acht bits samen vormt een byte.">bit</abbr> klopt niet, dan weten we dat er iets fout is gegaan tijdens het ontvangen.</p>
+<p><figure markdown="1">
+<img alt="Diagram of the UART protocol, showing high and low signals" src="../media/uart.png" width="1000" />
+<figcaption>Hoge en lage spanningen vormen een bericht in <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr></figcaption>
+</figure></p>
+</details>
+<h2 id="breadboard-aansluiting">Breadboard aansluiting</h2>
+<div class="admonition warning">
+<p class="admonition-title">Let op!</p>
+<p>Het is handig om te weten hoe deze opstelling werkt, maar deze stappen hoef je <strong>niet</strong>  te volgen als jouw sensor al is aangesloten</p>
+</div>
+<p>Voor het aansluiten van de sensor aan de microcontroller gaan we gebruik maken van een breadboard met jumpers (kabeltjes).</p>
+<p>Met een breadboard kunnen we de pinnen van de microcontroller verbinden aan de pinnen van de sensor, zonder permanente aansluitingen te maken. Hiervoor moet je wel weten hoe een breadboard in elkaar zit.</p>
+<p>Een breadboard bestaat uit rijen (horizontaal) en kolommen (verticaal). Zoals het diagram hieronder laat zien is elke rij met elkaar verbonden. Hiermee kunnen we dus tot 5 kabels met elkaar verbinden per rij. De enige uitzondering hierop is de + en - kolom die verticaal met elkaar verbonden zijn.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>De microcontroller past precies in het midden de breadboard waardoor je makkelijk de pinnen van de microcontroller kan verbinden met de sensor.</p>
+</div>
+<figure>
+<p><img alt="The front and back of a breadboard showing how the pins are interconnected" src="../media/breadboard_explained.png" width="700" /></p>
+<figcaption>De voor- en achterkant van een breadboard laat zien hoe de pinnen verbonden zijn met elkaar</figcaption>
+</figure>
+<h2 id="sensor-aansluiting">Sensor aansluiting</h2>
+<p>De microcontroller heeft <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> ingebouwd waar we gebruik van kunnen maken. Deze <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> zit verbonden op bepaalde pinnen. Als je de Pin-Map weer opened kan je deze herkennen door het (licht)paarse label waarin staat "UART0" of "UART1". Hier is <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> genummerd omdat we meerdere <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> communicaties tegelijk kunnen hebben met verschillende sensoren/apparaten. Later in deze workshop gaan we de radio module ook via <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> aanspreken.</p>
+<div class="admonition note">
+<p class="admonition-title">Microcontroller pin-map openen</p>
+<ol>
+<li>Klik op CTRL+SHIFT+P</li>
+<li>Typ: 'pin map'</li>
+<li>Klik op het resultaat</li>
+</ol>
+</div>
+<p>Naast de pinmap van de microcontroller, moet je ook weten wat elke pin van de sensor doet. De pinmap van de sensor kan je in het diagram hieronder zien. Let op dat de groene kant van de sensor beneden zit.</p>
+<figure>
+<p><img alt="Pin map of the SPS30 particulate matter sensor" src="../media/sps30_pinmap.png" width="400" /></p>
+<figcaption>De pinmap van de SPS30 fijnstof sensor</figcaption>
+</figure>
+<p>Hieronder staat een tabel met de verbinding van de microcontroller naar de sensor. Gebruik de pinmap van de microcontroller en de sensor om te begrijpen hoe ze met elkaar verbonden zijn. Mocht de sensor nog niet verbonden zijn met de microcontroller, doe dat dan nu.</p>
+<div class="admonition error">
+<p class="admonition-title">Sensor kapot!?</p>
+<p>Eigenlijk kan je bijna niks kapot maken tijdens het schrijven van code. Dit is de enige stap waar je extra goed moet opletten. Als je per ongeluk de stroomvoeding en de stroomgrond (de + en de -) door elkaar haalt gaat de sensor gegarandeerd kapot en kan je niet verder met de workshop.</p>
+</div>
+<figure>
+<table>
+<thead>
+<tr>
+<th>Microcontroller pin (GPxx)</th>
+<th>Sensor pin</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VSYS</td>
+<td>+5V/VDD</td>
+<td>De stroomvoeding voor de sensor</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>Stroom grond</td>
+</tr>
+<tr>
+<td>UART1 <abbr title="Transmit; het versturen van data">TX</abbr> (GP4)</td>
+<td><abbr title="Receive; het ontvangen van data">RX</abbr></td>
+<td>Data vanuit microcontroller naar de sensor</td>
+</tr>
+<tr>
+<td>UART1 <abbr title="Receive; het ontvangen van data">RX</abbr> (GP5)</td>
+<td><abbr title="Transmit; het versturen van data">TX</abbr></td>
+<td>Data vanuit sensor naar de microcontroller</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h2 id="code-schrijven">Code schrijven</h2>
+<p>De sensor is via draadjes verbonden met de microcontroller, maar nu moeten we code schrijven zodat de microcontroller begrijpt dat de SPS30 sensor verbonden zit via <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> communicatie. Hiervoor moet je het volgende weten, dit staat ook eerder op deze pagina uitgelegd:</p>
+<ul>
+<li>We gebruiken <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> nummer 1</li>
+<li><abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> <abbr title="Transmit; het versturen van data">TX</abbr> (verzend) pin is GP4</li>
+<li><abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> <abbr title="Receive; het ontvangen van data">RX</abbr> (ontvang) pin is GP5</li>
+<li>De sensor heet de SPS30</li>
+<li>We moeten met een snelheid van 115200 bits per seconden data versturen/ontvangen <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></li>
+</ul>
+<p>Open het workshop bestand genaamd: <strong>5_sps30.py</strong>. Lees dit bestand even door en let op hoe de <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> verbinding wordt opgezet. Net als bij <code>Pin</code> importeren we extra functionaliteit <code>UART</code>. Vervolgens maken we 2 pinnen aan, dit zijn de UART1 <abbr title="Transmit; het versturen van data">TX</abbr> en <abbr title="Receive; het ontvangen van data">RX</abbr> pin. Deze pinnen gebruiken we weer om een <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> object aan te maken.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">UART</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">lib.sps30</span> <span class="kn">import</span> <span class="n">SPS30</span>
+
+<span class="n">tx_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">rx_pin</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">verbinding</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="n">tx_pin</span><span class="p">,</span> <span class="n">rx</span><span class="o">=</span><span class="n">rx_pin</span><span class="p">)</span>
+
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">SPS30</span><span class="p">(</span><span class="n">verbinding</span><span class="p">)</span>
+<span class="n">serienummer</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">serie_nummer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">serienummer</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<details class="warning">
+<summary>Ik krijg geen reactie...?</summary>
+<p>Het kan voorkomen dat je de code uitvoert en geen reactie krijg, dan zie je alleen het volgende:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&gt;&gt;&gt; 
+
+&gt;&gt;&gt; 
+</code></pre></div>
+</td></tr></table>
+<p>In dit geval zal er ergens een communicatiefout zijn opgetreden. Dit kan gebeuren omdat werken met jumpers (draadjes) niet altijd even stabiel is. </p>
+<p>Probeer nog een aantal keer op "Run" te klikken. Als het daarna nog niet werkt, vraag dan een van de begeleiders om hulp.</p>
+</details>
+<details class="note">
+<summary>Parameter namen gebruiken</summary>
+<p>Zoals je wellicht is opgevallen, bij het maken van het <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> object zetten we de parameters niet op volgorde maar specificeren we welke parameter we een waarde willen geven.</p>
+<p>Bij het Pin voorbeeld zie je alleen 4 als parameter. Echter, als je met je muis over het woord <code>Pin</code> hangt dan zal je onwtikkelomgeving een popup laten zien met extra informatie, zoals de parameter namen. Deze informatie kan je ook zien als je over <code>UART</code> hangt met je muis.</p>
+<p><figure markdown="1">
+<img alt="A popup with a description and parameters names when hovering over the word Pin" src="../media/pin_parameters.png" />
+<figcaption>Omschrijving en parameter namen van het Pin object</figcaption>
+</figure></p>
+<p>In eerste instantie ziet de omschrijving er complex uit, maar let vooral op de woorden tussen de haakjes en voor de dubbele punt <code>:</code>. De namen van de parameters van het Pin object zijn in volgorde: <code>id</code>, <code>mode</code>, <code>pull</code> en <code>af</code>.</p>
+<p>Als je niet specifiek de naam van de parameter opgeeft zoals <code class="highlight"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span></code> dan wordt de volgorde in de omschrijving aangehouden. Dus de parameter met de naam <code>id</code> is in dit geval 25 en <code>mode</code> is <code>Pin.OUT</code>. </p>
+<p>Als je wel de naam van de parameters opgeeft, ziet dat er als volgt uit: <code class="highlight"><span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span></code>. Je hoeft dan ook de volgorde niet aan te houden.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Vraag A: Klopt het serienummer</p>
+<p>Zoals je in de code ziet, we voeren een functie uit op het sensor object genaamd <code>serie_nummer()</code>. Achter de schermen gebruikt deze functie de <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> verbinding om aan de SPS30 te vragen wat zijn serie nummer is.</p>
+<p>Het serienummer van de SPS30 staat ook op een label op de groene kant van de sensor. Komen deze serie nummers overeen?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Oefening B: Zien wat er achter de schermen gebeurd?</p>
+<p>Wanneer het SPS30 object wordt gemaakt geef je 1 parameter mee, dat is de <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr> verbinding (zie regel 8). Echter, de bij het aanmaken van het SPS30 object kan je ook een tweede parameter meegeven dat een boolean is (<code class="highlight"><span class="kc">True</span></code> of <code class="highlight"><span class="kc">False</span></code>). Deze tweede parameter heeft de naam <code>debug</code>. Dit staat standaard uit, maar als je het aan zet zal de microcontroller meer informatie terugsturen naar je computer. Hierin zie je ook de data die de microcontroller stuurt en ontvangt via <abbr title="Universal Asynchronous Receiver Transmitter; een manier om data te versturen en ontvangen">UART</abbr>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">sensor</span> <span class="o">=</span> <span class="n">SPS30</span><span class="p">(</span><span class="n">verbinding</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Oefening C: Verder kijken</p>
+<p>Eerder heb je geleerd dat de ontwikkelomgeving suggesties en aanvullingen kan geven. Als je <code class="highlight"><span class="n">sensor</span><span class="o">.</span></code> typt, zie je dan al interessante functies?</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Er zijn ook manieren om op slechts 1 kabel zowel data te versturen als ontvangen, dit heet "half-duplex"&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Dit is een van de standaard snelheden. Een andere bekende snelheid is: 9600&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../pm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Wat is fijnstof" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Wat is fijnstof
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../pm-measurement/" class="md-footer__link md-footer__link--next" aria-label="Next: Een meting doen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Een meting doen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>
+      
+    
+  </body>
+</html>
